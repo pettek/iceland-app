@@ -7,7 +7,7 @@ const concertReducer = (state = [], action) => {
   switch (action.type) {
 
     case CONCERT_REQUEST_SUCCESSFUL:
-      return {...state, authors: action.payload};
+      return state.concat(action.payload);
 
     case CONCERT_REQUEST_FAILED:
       return {...state, error: action.payload};
