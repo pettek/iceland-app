@@ -1,9 +1,7 @@
 import React, { Component }   from 'react';
 import './SportsDashboard.css';
-import { fetchSportsFromApi } from '../../actions';
+import { fetchSportsFromApi } from '../../../actions';
 import { connect }            from 'react-redux';
-import SportsLeague           from '../sports-league/SportsLeague';
-import FixtureList            from '../fixture-list/FixtureList';
 import LeaguesButtons         from '../leagues-buttons/LeaguesButtons';
 
 const mapStateToProps = state => ({
@@ -42,7 +40,7 @@ export default class SportsDashboard extends Component {
           <LeaguesButtons />
         </div>
         <div className="col-md-9 col-6">
-          <FixtureList />
+          ...
         </div>
       </div>);
   }
