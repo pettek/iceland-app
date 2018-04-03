@@ -7,7 +7,7 @@ const busesReducer = (state = [], action) => {
   switch (action.type) {
 
     case BUSES_REQUEST_SUCCESSFUL:
-      return state.concat(action.payload);
+      return action.payload;
 
     case BUSES_REQUEST_FAILED:
       return {...state, error: action.payload};
