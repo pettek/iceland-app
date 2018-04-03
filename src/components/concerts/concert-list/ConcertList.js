@@ -1,5 +1,4 @@
 import React, { Component }     from 'react';
-import './ConcertList.css';
 import { fetchConcertsFromApi } from '../../../actions';
 import { connect }              from 'react-redux';
 import Concert                  from '../concert/Concert';

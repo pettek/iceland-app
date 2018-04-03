@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './LeaguesButtons.css';
 import { connect }          from 'react-redux';
 
 const mapStateToProps = state => ({

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Content.css';
 import ConcertList          from '../concerts/concert-list/ConcertList';
 import LandingPage          from '../landing-page/LandingPage';
 import { Switch, Route }    from 'react-router-dom';
