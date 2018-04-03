@@ -18,3 +18,11 @@ a:hover {
     text-decoration: none;
     color: #66a;
 }
+
+nav ul {
+    width: 100%;
+}
+
+.push-right {
+    margin-left: 8%;
+}

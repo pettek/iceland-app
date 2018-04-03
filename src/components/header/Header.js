@@ -7,7 +7,7 @@ export default class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="collapse navbar-collapse">
-          <ul className="navbar-nav">
+          <ul className="nav justify-content-center">
             <li className="nav-item">
               <NavLink
                 exact to="/"
@@ -38,6 +38,7 @@ export default class Header extends Component {
                 activeClassName="selected"
               >Buses</NavLink>
             </li>
+            <li className="nav-item push-right"><i className="fa fa-user-circle-o" aria-hidden="true"/> &nbsp; polbrot</li>
           </ul>
         </div>
       </nav>
