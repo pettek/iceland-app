@@ -32,6 +32,12 @@ export default class Header extends Component {
                 activeClassName="selected"
               >Flights</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                exact to="/buses"
+                activeClassName="selected"
+              >Buses</NavLink>
+            </li>
           </ul>
         </div>
       </nav>
