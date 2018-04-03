@@ -3,6 +3,7 @@ import './SportsDashboard.css';
 import { fetchSportsFromApi } from '../../../actions';
 import { connect }            from 'react-redux';
 import LeaguesButtons         from '../leagues-buttons/LeaguesButtons';
+import SportsLeague           from '../sports-league/SportsLeague';
 
 const mapStateToProps = state => ({
   sports: state.sports,
@@ -10,12 +11,16 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSportsFromApi: () => dispatch(fetchSportsFromApi()),
+    fetchSportsFromApi: (url) => dispatch(fetchSportsFromApi(url)),
   };
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class SportsDashboard extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {league: ''};
+  }
   /**
    * Turn abc-def (delimiter: -) or abc (delimiter: whitespace) def into Abc Def
    * @param string
@@ -25,11 +30,17 @@ export default class SportsDashboard extends Component {
   static capitalize (string = '', delimiter = ' ') {
 
     const exploded = string.split(delimiter);
-    return exploded.map(item => item[0].toUpperCase() + item.slice(1)).join(' ');
+    return exploded.map(item => item[0].toUpperCase() + item.slice(1)).
+                    join(' ');
   }
 
   componentDidMount () {
-    this.props.fetchSportsFromApi();
+    this.props.fetchSportsFromApi('/sports');
+  }
+
+  chooseLeague (choice) {
+    this.props.fetchSportsFromApi(choice);
+    this.setState({league: choice});
   }
 
   render () {
@@ -37,10 +48,10 @@ export default class SportsDashboard extends Component {
     return (
       <div className="row">
         <div className="col-md-3 col-6">
-          <LeaguesButtons />
+          <LeaguesButtons clickHandler={this.chooseLeague.bind(this)}/>
         </div>
         <div className="col-md-9 col-6">
-          ...
+          <SportsLeague league={this.state.league}/>
         </div>
       </div>);
   }

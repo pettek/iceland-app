@@ -31,7 +31,7 @@ const MapComponent = compose(
 export default class BusesDashboard extends Component {
 
   componentWillMount () {
-    this.intervalId = setInterval(() => this.props.fetchBusesFromApi(), 10000);
+    this.intervalId = setInterval(() => this.props.fetchBusesFromApi(), 5000);
     this.props.fetchBusesFromApi();
   }
 

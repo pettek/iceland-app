@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
+import SportsDashboard      from '../sports-dashboard/SportsDashboard';
 
 const mapStateToProps = state => ({
   sports: state.sports,
@@ -9,22 +10,14 @@ const mapStateToProps = state => ({
 export default class LeaguesButtons extends Component {
   render () {
 
-    const leagueButtons = (groupName, subleagues) => (
-      <div>
-        {console.log(subleagues)}
-        <p key={groupName}>{groupName}</p>
-        {Object.keys(subleagues).map(subleague => (
-          <button className="btn"
-                  key={subleague}>{subleague}</button>
-        ))}
-      </div>
-    );
-
     const buttons = Object.keys(this.props.sports).map(league => (
-      (Array.isArray(this.props.sports[league])) ?
-        <div><button className="btn btn-block"
-                key={league}>{league}</button></div> :
-        leagueButtons(league, this.props.sports[league])
+        <div>
+          <button className="btn btn-block"
+                  key={league}
+                  onClick={() => this.props.clickHandler(league)}>
+            {this.props.sports[league].label}
+            </button>
+        </div>
     ));
 
     return (
