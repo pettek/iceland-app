@@ -18,7 +18,7 @@ export const fetchSportsFromApi = (url) => {
         if (results.results[0].endpoints) {
           const endpoints = results.results[0].endpoints;
           Object.keys(endpoints).forEach(label =>
-            dispatch({type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT, label, endpoint: endpoints[label]})
+            dispatch({type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT, label, endpoint: endpoints[label], url})
           );
         } else {
           dispatch({

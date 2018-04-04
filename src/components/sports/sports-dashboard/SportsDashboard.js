@@ -51,7 +51,7 @@ export default class SportsDashboard extends Component {
           <LeaguesButtons clickHandler={this.chooseLeague.bind(this)}/>
         </div>
         <div className="col-md-9 col-6">
-          <SportsLeague league={this.state.league}/>
+          <SportsLeague league={this.state.league} clickHandler={this.chooseLeague.bind(this)}/>
         </div>
       </div>);
   }

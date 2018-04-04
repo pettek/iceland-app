@@ -10,12 +10,14 @@ const mapStateToProps = state => ({
 export default class LeaguesButtons extends Component {
   render () {
 
-    const buttons = Object.keys(this.props.sports).map(league => (
+    const buttons = Object.keys(this.props.sports)
+                          .filter(league => this.props.sports[league].label)
+                          .map(league => (
         <div>
           <button className="btn btn-block"
                   key={league}
                   onClick={() => this.props.clickHandler(league)}>
-            {this.props.sports[league].label}
+            {SportsDashboard.capitalize(this.props.sports[league].label, '-')}
             </button>
         </div>
     ));
