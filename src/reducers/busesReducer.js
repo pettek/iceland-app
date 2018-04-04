@@ -1,15 +1,12 @@
-import {
-  BUSES_REQUEST_FAILED,
-  BUSES_REQUEST_SUCCESSFUL,
-} from '../actions/actions';
+import { GET_BUSES_FULFILLED, GET_BUSES_REJECTED } from '../actions/actions';
 
 const busesReducer = (state = [], action) => {
   switch (action.type) {
 
-    case BUSES_REQUEST_SUCCESSFUL:
-      return action.payload;
+    case GET_BUSES_FULFILLED:
+      return action.payload.positions;
 
-    case BUSES_REQUEST_FAILED:
+    case GET_BUSES_REJECTED:
       return {...state, error: action.payload};
 
     default:

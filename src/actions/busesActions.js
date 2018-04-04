@@ -1,28 +1,14 @@
-import {
-  BUSES_REQUEST_CREATED,
-  BUSES_REQUEST_FAILED,
-  BUSES_REQUEST_SUCCESSFUL,
-} from './actions';
+import {GET_BUSES} from './actions';
 
-export const fetchBusesFromApi = () => {
+const API = 'https://app.straeto.is/pele/api/v1';
+
+export const getBuses = () => {
   return (dispatch) => {
-    dispatch({
-      type: BUSES_REQUEST_CREATED,
-    });
-
-    fetch('https://app.straeto.is/pele/api/v1/positions/filter/1,2,3,4').
-      then(response => response.json()).
-      then(results => {
-        dispatch({
-          type: BUSES_REQUEST_SUCCESSFUL,
-          payload: results.positions,
-        });
-      }).
-      catch(error => {
-        dispatch({
-          type: BUSES_REQUEST_FAILED,
-          payload: error.message,
-        });
-      });
+    return dispatch({
+        type: 'GET_BUSES',
+        payload: fetch(`${API}/positions/filter/1,2,3,4,5,6,7,8,9`).then(r => r.json())
+      }
+    );
   };
+
 };
