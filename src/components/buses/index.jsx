@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
-import { fetchBusesFromApi } from '../../actions';
+import { getBuses } from '../../actions';
 import { connect }           from 'react-redux';
 import { MapComponent }      from './map-component';
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBusesFromApi: () => dispatch(fetchBusesFromApi()),
+    getBuses: () => dispatch(getBuses()),
   };
 };
 
@@ -13,8 +13,8 @@ const mapDispatchToProps = dispatch => {
 export default class Buses extends Component {
 
   componentWillMount () {
-    this.intervalId = setInterval(() => this.props.fetchBusesFromApi(), 5000);
-    this.props.fetchBusesFromApi();
+    this.intervalId = setInterval(() => this.props.getBuses(), 5000);
+    this.props.getBuses();
   }
 
   componentWillUnmount () {
@@ -23,12 +23,7 @@ export default class Buses extends Component {
 
   render () {
     return <div>
-      <MapComponent
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={<div style={{height: `100%`}}/>}
-        containerElement={<div style={{height: `70vh`, width: `100%`}}/>}
-        mapElement={<div style={{height: `100%`}}/>}
-      />
+      <MapComponent/>
     </div>;
   }
 }
