@@ -1,13 +1,7 @@
 import React, { Component }  from 'react';
-import { fetchBusesFromApi } from '../../../actions';
+import { fetchBusesFromApi } from '../../actions';
 import { connect }           from 'react-redux';
-import {
-  GoogleMap,
-  withGoogleMap,
-  withScriptjs,
-}                            from 'react-google-maps';
-import { compose }           from 'recompose';
-import MarkersList           from '../markers-list/MarkersList';
+import { MapComponent }      from './map-component';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -15,20 +9,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const MapComponent = compose(
-  withScriptjs,
-  withGoogleMap,
-)(() =>
-  <GoogleMap
-    defaultZoom={11}
-    defaultCenter={{lat: 64.1, lng: -21.9}}
-  >
-    <MarkersList/>
-  </GoogleMap>,
-);
-
 @connect(null, mapDispatchToProps)
-export default class BusesDashboard extends Component {
+export default class Buses extends Component {
 
   componentWillMount () {
     this.intervalId = setInterval(() => this.props.fetchBusesFromApi(), 5000);
