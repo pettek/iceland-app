@@ -1,12 +1,13 @@
 import React, { Component }    from 'react';
 import DeparturesList          from './DeparturesList';
 import ArrivalsList            from './ArrivalsList';
-import { fetchFlightsFromApi } from '../../actions/index';
+import { getArrivals, getDepartures } from '../../actions/index';
 import { connect }             from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchFlightsFromApi: () => dispatch(fetchFlightsFromApi()),
+    getArrivals: () => dispatch(getArrivals()),
+    getDepartures: () => dispatch(getDepartures()),
   };
 };
 
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch => {
 export default class Flights extends Component {
 
   componentDidMount () {
-    this.props.fetchFlightsFromApi();
+    this.props.getArrivals();
+    this.props.getDepartures();
   }
 
   render () {

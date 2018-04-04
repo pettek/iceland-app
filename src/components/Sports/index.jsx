@@ -1,9 +1,9 @@
 import React, { Component }   from 'react';
-import './SportsDashboard.css';
-import { fetchSportsFromApi } from '../../../actions';
+import './Sports.css';
+import { fetchSportsFromApi } from '../../actions';
 import { connect }            from 'react-redux';
-import LeaguesButtons         from '../leagues-buttons/LeaguesButtons';
-import SportsLeague           from '../sports-league/SportsLeague';
+import LeaguesButtons         from './LeaguesButtons';
+import SportsLeague           from './SportsLeague';
 
 const mapStateToProps = state => ({
   sports: state.sports,
@@ -30,12 +30,12 @@ export default class SportsDashboard extends Component {
   static capitalize (string = '', delimiter = ' ') {
 
     const exploded = string.split(delimiter);
-    return exploded.map(item => item[0].toUpperCase() + item.slice(1)).
-                    join(' ');
+    return exploded.map(item => item[0].toUpperCase() + item.slice(1))
+                   .join(' ');
   }
 
   componentDidMount () {
-    this.props.fetchSportsFromApi('/sports');
+    this.props.fetchSportsFromApi('/Sports');
   }
 
   chooseLeague (choice) {

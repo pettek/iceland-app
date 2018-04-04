@@ -1,15 +1,15 @@
 import {
-  CONCERT_REQUEST_FAILED,
-  CONCERT_REQUEST_SUCCESSFUL,
+  GET_CONCERTS_REJECTED,
+  GET_CONCERTS_FULFILLED,
 } from '../actions/actions';
 
 const concertReducer = (state = [], action) => {
   switch (action.type) {
 
-    case CONCERT_REQUEST_SUCCESSFUL:
-      return state.concat(action.payload);
+    case GET_CONCERTS_FULFILLED:
+      return state.concat(action.payload.results);
 
-    case CONCERT_REQUEST_FAILED:
+    case GET_CONCERTS_REJECTED:
       return {...state, error: action.payload};
 
     default:

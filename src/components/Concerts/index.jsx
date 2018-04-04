@@ -1,5 +1,5 @@
 import React, { Component }     from 'react';
-import { fetchConcertsFromApi } from '../../actions/index';
+import { getConcerts } from '../../actions/index';
 import { connect }              from 'react-redux';
 import Concert                  from './Concert';
 
@@ -9,19 +9,21 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchConcertsFromApi: () => dispatch(fetchConcertsFromApi())
+    getConcerts: () => dispatch(getConcerts())
   };
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Concerts extends Component {
   componentDidMount () {
-    this.props.fetchConcertsFromApi();
+    this.props.getConcerts();
   }
 
   render () {
-    const concerts = this.props.concerts.map((concert, index) => (
-      <Concert key={index} details={concert}/>
+    const concerts = this.props.concerts
+      .filter(concert => concert)
+      .map((concert, index) => (
+        <Concert key={index} details={concert}/>
     ));
 
     return (

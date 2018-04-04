@@ -1,15 +1,15 @@
 import {
-  CARPOOLING_REQUEST_FAILED,
-  CARPOOLING_REQUEST_SUCCESSFUL,
+  GET_DRIVERS_REJECTED,
+  GET_DRIVERS_FULFILLED,
 } from '../actions/actions';
 
 const carpoolingReducer = (state = [], action) => {
   switch (action.type) {
 
-    case CARPOOLING_REQUEST_SUCCESSFUL:
-      return state.concat(action.payload);
+    case GET_DRIVERS_FULFILLED:
+      return state.concat(action.payload.results);
 
-    case CARPOOLING_REQUEST_FAILED:
+    case GET_DRIVERS_REJECTED:
       return {...state, error: action.payload};
 
     default:

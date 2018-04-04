@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect }        from 'react-redux';
-import Fixture            from '../fixture/Fixture';
+import Fixture            from './Fixture';
 
 const mapStateToProps = state => ({
   sports: state.sports,
@@ -15,7 +15,7 @@ export default class FixtureList extends Component {
       fixtures = this.props.sports[this.props.league].payload || [];
     }
 
-    const fixturesList = fixtures.map(fix => <Fixture details={fix}/>);
+    const fixturesList = fixtures.map((fix, ind) => <Fixture key={ind} details={fix}/>);
 
     return <div>{fixturesList}</div>;
   }

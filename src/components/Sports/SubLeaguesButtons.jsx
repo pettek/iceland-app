@@ -17,6 +17,7 @@ export default class SubLeaguesButtons extends Component {
                           .filter(b => (b !== 'payload' && b !== 'label'))
                           .map(b => (
                             <button
+                              key={b}
                               className="btn"
                               onClick={() => this.props.clickHandler(b)}
                             >{SportsDashboard.capitalize(buttons[b].label, '-')}</button>));

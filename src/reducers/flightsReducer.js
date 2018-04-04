@@ -1,25 +1,25 @@
 import {
-  ARRIVALS_REQUEST_SUCCESSFUL,
-  DEPARTURES_REQUEST_SUCCESSFUL,
-  FLIGHTS_REQUEST_FAILED
+  GET_ARRIVALS_FULFILLED, GET_ARRIVALS_REJECTED,
+  GET_DEPARTURES_FULFILLED, GET_DEPARTURES_REJECTED,
 } from '../actions/actions';
 
 const flightsReducer = (state = {arrivals: [], departures: []}, action) => {
   switch (action.type) {
 
-    case ARRIVALS_REQUEST_SUCCESSFUL:
+    case GET_ARRIVALS_FULFILLED:
       return {
         ...state,
-        arrivals: state.arrivals.concat(action.payload)
+        arrivals: state.arrivals.concat(action.payload.results)
       };
 
-    case DEPARTURES_REQUEST_SUCCESSFUL:
+    case GET_DEPARTURES_FULFILLED:
       return {
         ...state,
-        departures: state.departures.concat(action.payload)
+        departures: state.departures.concat(action.payload.results)
       };
 
-    case FLIGHTS_REQUEST_FAILED:
+    case GET_ARRIVALS_REJECTED:
+    case GET_DEPARTURES_REJECTED:
       return {...state, error: action.payload};
 
     default:

@@ -10,7 +10,7 @@ export default class Ride extends Component {
         <strong>{to}</strong> &nbsp;
       </div>
       <div className="col-md-1">
-        <a href={link}><i className="fa fa-external-link" aria-hidden="true"/></a>
+        <a href={link}><i className="fa fa-external-link" aria-hidden="true"/>&nbsp;</a>
       </div>
       <div className="col-md-3">
         <i className="fa fa-calendar-o" aria-hidden="true"/>&nbsp;{date} &nbsp;

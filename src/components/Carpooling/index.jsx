@@ -1,6 +1,6 @@
 import React, { Component }    from 'react';
 import Ride                    from './Ride';
-import { fetchDriversFromApi } from '../../actions/index';
+import { getDrivers } from '../../actions/index';
 import connect                 from 'react-redux/es/connect/connect';
 
 const mapStateToProps = state => ({
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchDriversFromApi: () => dispatch(fetchDriversFromApi()),
+    getDrivers: () => dispatch(getDrivers()),
   };
 };
 
@@ -22,7 +22,7 @@ export default class Carpooling extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchDriversFromApi();
+    this.props.getDrivers();
   }
 
   handleChange (e) {
@@ -37,7 +37,7 @@ export default class Carpooling extends Component {
         return d.from.toLowerCase().includes(filter) ||
         d.to.toLowerCase().includes(filter)
       })
-      .map(d => <Ride details={d}/>);
+      .map(d => <Ride key={d.link} details={d}/>);
 
     return <div>
       <h1>Find your drive</h1>

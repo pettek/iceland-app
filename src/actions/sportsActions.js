@@ -11,9 +11,9 @@ export const fetchSportsFromApi = (url) => {
       type: SPORT_REQUEST_CREATED,
     });
 
-    fetch(`http://apis.is${url}`).
-      then(response => response.json()).
-      then(results => {
+    fetch(`http://apis.is${url}`)
+      .then(response => response.json())
+      .then(results => {
         if (results.results[0].endpoints) {
           const endpoints = results.results[0].endpoints;
           Object.keys(endpoints).forEach(label =>
@@ -31,8 +31,8 @@ export const fetchSportsFromApi = (url) => {
             endpoint: url,
           });
         }
-      }).
-      catch(error => {
+      })
+      .catch(error => {
         dispatch({
           type: SPORT_REQUEST_FAILED,
           payload: error.message,

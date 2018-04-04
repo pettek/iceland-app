@@ -1,28 +1,13 @@
-import {
-  CARPOOLING_REQUEST_CREATED,
-  CARPOOLING_REQUEST_FAILED,
-  CARPOOLING_REQUEST_SUCCESSFUL,
-} from './actions';
+import { GET_DRIVERS } from './actions';
 
-export const fetchDriversFromApi = () => {
+const API = 'http://apis.is/rides/samferda-drivers/';
+
+export const getDrivers = () => {
   return (dispatch) => {
-    dispatch({
-      type: CARPOOLING_REQUEST_CREATED,
-    });
-
-    fetch('http://apis.is/rides/samferda-drivers/').
-      then(response => response.json()).
-      then(results => {
-        dispatch({
-          type: CARPOOLING_REQUEST_SUCCESSFUL,
-          payload: results.results,
-        });
-      }).
-      catch(error => {
-        dispatch({
-          type: CARPOOLING_REQUEST_FAILED,
-          payload: error.message,
-        });
-      });
+    return dispatch({
+        type: GET_DRIVERS,
+        payload: fetch(API).then(r => r.json()),
+      },
+    );
   };
 };

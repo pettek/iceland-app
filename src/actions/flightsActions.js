@@ -1,44 +1,23 @@
-import {
-  ARRIVALS_REQUEST_SUCCESSFUL,
-  DEPARTURES_REQUEST_SUCCESSFUL,
-  FLIGHTS_REQUEST_CREATED,
-  FLIGHTS_REQUEST_FAILED,
-} from './actions';
+import { GET_ARRIVALS, GET_DEPARTURES } from './actions';
 
-export const fetchFlightsFromApi = () => {
+const API = 'http://apis.is/flight?language=en';
+
+export const getArrivals = () => {
   return (dispatch) => {
-    dispatch({
-      type: FLIGHTS_REQUEST_CREATED,
-    });
+    return dispatch({
+        type: GET_ARRIVALS,
+        payload: fetch(`${API}&type=arrivals`).then(r => r.json()),
+      },
+    );
+  };
+};
 
-    fetch('http://apis.is/flight?language=en&type=arrivals').
-      then(response => response.json()).
-      then(results => {
-        dispatch({
-          type: ARRIVALS_REQUEST_SUCCESSFUL,
-          payload: results.results,
-        });
-      }).
-      catch(error => {
-        dispatch({
-          type: FLIGHTS_REQUEST_FAILED,
-          payload: error.message,
-        });
-      });
-
-    fetch('http://apis.is/flight?language=en&type=departures').
-      then(response => response.json()).
-      then(results => {
-        dispatch({
-          type: DEPARTURES_REQUEST_SUCCESSFUL,
-          payload: results.results,
-        });
-      }).
-      catch(error => {
-        dispatch({
-          type: FLIGHTS_REQUEST_FAILED,
-          payload: error.message,
-        });
-      });
+export const getDepartures = () => {
+  return (dispatch) => {
+    return dispatch({
+        type: GET_DEPARTURES,
+        payload: fetch(`${API}&type=departures`).then(r => r.json()),
+      },
+    );
   };
 };
