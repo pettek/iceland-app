@@ -44,7 +44,11 @@ export default class Header extends Component {
                 activeClassName="selected"
               >Carpooling</NavLink>
             </li>
-            <li className="nav-item push-right"><i className="fa fa-user-circle-o" aria-hidden="true"/> &nbsp; polbrot</li>
+            <li className="nav-item push-right"><NavLink
+              exact to="/login"
+              activeClassName="selected"
+            ><i className="fa fa-user-circle-o"
+                aria-hidden="true"/> &nbsp; Login</NavLink></li>
           </ul>
         </div>
       </nav>
