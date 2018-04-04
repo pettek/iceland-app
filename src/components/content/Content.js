@@ -5,6 +5,7 @@ import { Switch, Route }    from 'react-router-dom';
 import SportsDashboard      from '../sports/sports-dashboard/SportsDashboard';
 import FlightsDashboard     from '../flights/flights-dashboard/FlightsDashboard';
 import BusesDashboard     from '../buses/buses-dashboard/BusesDashboard';
+import CarpoolingDashboard     from '../carpooling/carpooling-dashboard/CarpoolingDashboard';
 
 export default class Content extends Component {
   render () {
@@ -15,6 +16,7 @@ export default class Content extends Component {
         <Route exact path="/sports" component={SportsDashboard}/>
         <Route exact path="/flights" component={FlightsDashboard}/>
         <Route exact path="/buses" component={BusesDashboard}/>
+        <Route exact path="/carpooling" component={CarpoolingDashboard}/>
       </Switch>
     </div>;
   }

@@ -14,7 +14,7 @@ export default class SubLeaguesButtons extends Component {
     let buttonsList = [];
     if(buttons) {
       buttonsList = Object.keys(buttons)
-                          .filter(b => (b !== 'payload' && b !== "label"))
+                          .filter(b => (b !== 'payload' && b !== 'label'))
                           .map(b => (
                             <button
                               className="btn"

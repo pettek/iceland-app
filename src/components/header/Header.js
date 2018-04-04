@@ -38,6 +38,12 @@ export default class Header extends Component {
                 activeClassName="selected"
               >Buses</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                exact to="/carpooling"
+                activeClassName="selected"
+              >Carpooling</NavLink>
+            </li>
             <li className="nav-item push-right"><i className="fa fa-user-circle-o" aria-hidden="true"/> &nbsp; polbrot</li>
           </ul>
         </div>
