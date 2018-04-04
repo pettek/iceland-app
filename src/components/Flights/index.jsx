@@ -1,7 +1,7 @@
 import React, { Component }    from 'react';
-import DeparturesList          from '../departures-list/DeparturesList';
-import ArrivalsList            from '../arrivals-list/ArrivalsList';
-import { fetchFlightsFromApi } from '../../../actions';
+import DeparturesList          from './DeparturesList';
+import ArrivalsList            from './ArrivalsList';
+import { fetchFlightsFromApi } from '../../actions/index';
 import { connect }             from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 @connect(null, mapDispatchToProps)
-export default class FlightsDashboard extends Component {
+export default class Flights extends Component {
 
   componentDidMount () {
     this.props.fetchFlightsFromApi();

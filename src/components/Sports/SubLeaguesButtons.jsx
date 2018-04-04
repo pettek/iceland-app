@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect }        from 'react-redux';
-import SportsDashboard    from '../sports-dashboard/SportsDashboard';
+import SportsDashboard    from './index';
 
 const mapStateToProps = state => ({
   sports: state.sports,

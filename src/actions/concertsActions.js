@@ -10,7 +10,7 @@ export const fetchConcertsFromApi = () => {
       type: CONCERT_REQUEST_CREATED,
     });
 
-    fetch('http://apis.is/concerts').
+    fetch('http://apis.is/Concerts').
       then(response => response.json()).
       then(results => {
         dispatch({

@@ -1,6 +1,6 @@
 import React, { Component }    from 'react';
-import Ride                    from '../ride/Ride';
-import { fetchDriversFromApi } from '../../../actions';
+import Ride                    from './Ride';
+import { fetchDriversFromApi } from '../../actions/index';
 import connect                 from 'react-redux/es/connect/connect';
 
 const mapStateToProps = state => ({
@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
-export default class CarpoolingDashboard extends Component {
+export default class Carpooling extends Component {
 
   constructor (props) {
     super(props);

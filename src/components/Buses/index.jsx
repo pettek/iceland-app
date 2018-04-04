@@ -1,7 +1,7 @@
-import React, { Component }  from 'react';
-import { getBuses } from '../../actions';
-import { connect }           from 'react-redux';
-import { MapComponent }      from './map-component';
+import React, { Component } from 'react';
+import { getBuses }         from '../../actions';
+import { connect }          from 'react-redux';
+import { Map }              from './Map';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -22,9 +22,7 @@ export default class Buses extends Component {
   }
 
   render () {
-    return <div>
-      <MapComponent/>
-    </div>;
+    return <div><Map/></div>;
   }
 }
 

@@ -1,8 +1,8 @@
 import React, { Component }   from 'react';
-import { fetchSportsFromApi } from '../../../actions';
+import { fetchSportsFromApi } from '../../actions/index';
 import { connect }            from 'react-redux';
-import SubLeaguesButtons      from '../sub-leagues-buttons/SubLeaguesButtons';
-import FixtureList            from '../fixture-list/FixtureList';
+import SubLeaguesButtons      from './SubLeaguesButtons';
+import FixtureList            from './FixtureList';
 
 const mapStateToProps = state => ({
   sports: state.sports,

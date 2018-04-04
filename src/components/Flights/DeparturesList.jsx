@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
-import Departure            from '../departure/Departure';
+import Departure            from './Departure';
 
 const mapStateToProps = state => ({
   departures: state.flights.departures,

@@ -1,7 +1,7 @@
 import React, { Component }     from 'react';
-import { fetchConcertsFromApi } from '../../../actions';
+import { fetchConcertsFromApi } from '../../actions/index';
 import { connect }              from 'react-redux';
-import Concert                  from '../concert/Concert';
+import Concert                  from './Concert';
 
 const mapStateToProps = state => ({
   concerts: state.concerts
@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
-export default class ConcertList extends Component {
+export default class Concerts extends Component {
   componentDidMount () {
     this.props.fetchConcertsFromApi();
   }

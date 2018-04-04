@@ -8,7 +8,7 @@ const sportReducer = (state = {}, action) => {
   switch (action.type) {
 
     case SPORT_REQUEST_SUCCESSFUL_ENDPOINT:
-      if (action.url !== '/sports') {
+      if (action.url !== '/Sports') {
         return {
           ...state,
           [action.url]: {
