@@ -2,7 +2,7 @@ import {
   ARRIVALS_REQUEST_SUCCESSFUL,
   DEPARTURES_REQUEST_SUCCESSFUL,
   FLIGHTS_REQUEST_FAILED
-} from '../constants';
+} from '../actions/actions';
 
 const flightsReducer = (state = {arrivals: [], departures: []}, action) => {
   switch (action.type) {

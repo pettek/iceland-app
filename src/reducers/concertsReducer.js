@@ -1,7 +1,7 @@
 import {
   CONCERT_REQUEST_FAILED,
   CONCERT_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from '../actions/actions';
 
 const concertReducer = (state = [], action) => {
   switch (action.type) {

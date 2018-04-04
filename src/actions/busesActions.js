@@ -2,7 +2,7 @@ import {
   BUSES_REQUEST_CREATED,
   BUSES_REQUEST_FAILED,
   BUSES_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from './actions';
 
 export const fetchBusesFromApi = () => {
   return (dispatch) => {

@@ -1,7 +1,7 @@
 import {
   CARPOOLING_REQUEST_FAILED,
   CARPOOLING_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from '../actions/actions';
 
 const carpoolingReducer = (state = [], action) => {
   switch (action.type) {

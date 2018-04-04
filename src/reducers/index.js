@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import concertReducer      from './concert-reducer';
-import sportReducer        from './sport-reducer';
-import flightsReducer      from './flights-reducer';
-import busesReducer        from './buses-reducer';
-import carpoolingReducer   from './carpooling-reducer';
+import concerts            from './concertsReducer';
+import sports              from './sportsReducer';
+import flights             from './flightsReducer';
+import buses               from './busesReducer';
+import drivers             from './carpoolingReducer';
 
 export default combineReducers({
-  concerts: concertReducer,
-  sports: sportReducer,
-  flights: flightsReducer,
-  buses: busesReducer,
-  drivers: carpoolingReducer
+  concerts,
+  sports,
+  flights,
+  buses,
+  drivers
 });

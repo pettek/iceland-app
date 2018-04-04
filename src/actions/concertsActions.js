@@ -2,7 +2,7 @@ import {
   CONCERT_REQUEST_CREATED,
   CONCERT_REQUEST_FAILED,
   CONCERT_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from './actions';
 
 export const fetchConcertsFromApi = () => {
   return (dispatch) => {

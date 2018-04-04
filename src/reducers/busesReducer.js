@@ -1,7 +1,7 @@
 import {
   BUSES_REQUEST_FAILED,
   BUSES_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from '../actions/actions';
 
 const busesReducer = (state = [], action) => {
   switch (action.type) {

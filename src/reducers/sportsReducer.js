@@ -2,7 +2,7 @@ import {
   SPORT_REQUEST_FAILED,
   SPORT_REQUEST_SUCCESSFUL,
   SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
-} from '../constants';
+} from '../actions/actions';
 
 const sportReducer = (state = {}, action) => {
   switch (action.type) {

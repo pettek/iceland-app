@@ -1,9 +1,9 @@
 import {
-  FLIGHTS_REQUEST_CREATED,
-  FLIGHTS_REQUEST_FAILED,
   ARRIVALS_REQUEST_SUCCESSFUL,
   DEPARTURES_REQUEST_SUCCESSFUL,
-} from '../constants';
+  FLIGHTS_REQUEST_CREATED,
+  FLIGHTS_REQUEST_FAILED,
+} from './actions';
 
 export const fetchFlightsFromApi = () => {
   return (dispatch) => {

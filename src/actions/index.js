@@ -1,5 +1,5 @@
-export { fetchConcertsFromApi } from './ConcertActions';
-export { fetchSportsFromApi }   from './SportsActions';
-export { fetchFlightsFromApi }  from './FlightActions';
-export { fetchBusesFromApi }  from './BusesActions';
-export { fetchDriversFromApi }  from './CarpoolingActions';
+export { fetchConcertsFromApi } from './concertsActions';
+export { fetchSportsFromApi }   from './sportsActions';
+export { fetchFlightsFromApi }  from './flightsActions';
+export { fetchBusesFromApi }    from './busesActions';
+export { fetchDriversFromApi }  from './carpoolingActions';

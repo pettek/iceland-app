@@ -2,7 +2,7 @@ import {
   CARPOOLING_REQUEST_CREATED,
   CARPOOLING_REQUEST_FAILED,
   CARPOOLING_REQUEST_SUCCESSFUL,
-} from '../constants';
+} from './actions';
 
 export const fetchDriversFromApi = () => {
   return (dispatch) => {

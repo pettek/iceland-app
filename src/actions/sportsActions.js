@@ -1,8 +1,9 @@
 import {
   SPORT_REQUEST_CREATED,
   SPORT_REQUEST_FAILED,
-  SPORT_REQUEST_SUCCESSFUL, SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
-} from '../constants';
+  SPORT_REQUEST_SUCCESSFUL,
+  SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
+} from './actions';
 
 export const fetchSportsFromApi = (url) => {
   return (dispatch) => {
@@ -16,7 +17,12 @@ export const fetchSportsFromApi = (url) => {
         if (results.results[0].endpoints) {
           const endpoints = results.results[0].endpoints;
           Object.keys(endpoints).forEach(label =>
-            dispatch({type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT, label, endpoint: endpoints[label], url})
+            dispatch({
+              type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
+              label,
+              endpoint: endpoints[label],
+              url,
+            }),
           );
         } else {
           dispatch({
