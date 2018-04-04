@@ -10,8 +10,6 @@ export const fetchSportsFromApi = (url) => {
       type: SPORT_REQUEST_CREATED,
     });
 
-    console.log(url + " called!");
-
     fetch(`http://apis.is${url}`).
       then(response => response.json()).
       then(results => {

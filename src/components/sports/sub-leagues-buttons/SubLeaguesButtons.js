@@ -10,8 +10,8 @@ const mapStateToProps = state => ({
 export default class SubLeaguesButtons extends Component {
   render () {
     const buttons = this.props.sports[this.props.league];
+
     let buttonsList = [];
-    console.log(buttons);
     if(buttons) {
       buttonsList = Object.keys(buttons)
                           .filter(b => (b !== 'payload' && b !== "label"))
@@ -22,8 +22,9 @@ export default class SubLeaguesButtons extends Component {
                             >{SportsDashboard.capitalize(buttons[b].label, '-')}</button>));
     }
 
-    return <div>
+    return (
+    <div>
       {buttonsList}
-      </div>;
+    </div>);
   }
 }
