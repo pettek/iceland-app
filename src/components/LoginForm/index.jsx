@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { loginUser }        from '../../actions';
+import { login }            from '../../actions';
 import { connect }          from 'react-redux';
 import { Redirect }         from 'react-router-dom';
+import { Form }             from './Form';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -9,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: (loginData) => dispatch(loginUser(loginData)),
+    loginUser: (loginData) => dispatch(login(loginData)),
   };
 };
 
@@ -37,7 +38,7 @@ export default class LoginForm extends Component {
   }
 
   renderAlert () {
-    if(this.props.user.error) {
+    if (this.props.user.error) {
       return <div className="alert alert-danger" role="alert">
         {this.props.user.error}
       </div>;
@@ -46,20 +47,13 @@ export default class LoginForm extends Component {
 
   render () {
     return <div className="col-md-8 offset-md-2 col-10 offset-1">
-        {this.renderRedirect()}
+      {this.renderRedirect()}
       <h2 className="mb-5">Login form</h2>
       {this.renderAlert()}
-      <form action="#" onSubmit={this.loginUser.bind(this)}>
-        <div className="form-group">
-          Login
-          <input type="text" className="form-control" ref={this.loginField}/>
-        </div>
-        <div className="form-group">
-          Password
-          <input type="password" className="form-control" ref={this.passwordField}/>
-        </div>
-        <button type="submit" className="btn btn-block mt-4">Login</button>
-      </form>
-    </div>
+      <Form
+        onSubmit={this.loginUser.bind(this)}
+        loginRef={this.loginField}
+        passwordRef={this.passwordField}/>
+    </div>;
   }
 }
