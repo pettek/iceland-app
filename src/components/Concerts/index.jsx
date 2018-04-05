@@ -1,15 +1,15 @@
-import React, { Component }     from 'react';
-import { getConcerts } from '../../actions/index';
-import { connect }              from 'react-redux';
-import Concert                  from './Concert';
+import React, { Component } from 'react';
+import { getConcerts }      from '../../actions/index';
+import { connect }          from 'react-redux';
+import { Concert }          from './Concert';
 
 const mapStateToProps = state => ({
-  concerts: state.concerts
+  concerts: state.concerts,
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    getConcerts: () => dispatch(getConcerts())
+    getConcerts: () => dispatch(getConcerts()),
   };
 };
 
@@ -20,11 +20,10 @@ export default class Concerts extends Component {
   }
 
   render () {
-    const concerts = this.props.concerts
-      .filter(concert => concert)
-      .map((concert, index) => (
-        <Concert key={index} details={concert}/>
-    ));
+    const concerts = this.props.concerts.filter(concert => concert).
+                          map((concert, index) => (
+                            <Concert key={index} details={concert}/>
+                          ));
 
     return (
       <div>
@@ -33,6 +32,6 @@ export default class Concerts extends Component {
         </h2>
         {concerts}
       </div>
-      );
+    );
   }
 }
