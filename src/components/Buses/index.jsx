@@ -3,13 +3,17 @@ import { getBuses }         from '../../actions';
 import { connect }          from 'react-redux';
 import { Map }              from './Map';
 
+const mapStateToProps = state => ({
+  buses: state.buses,
+});
+
 const mapDispatchToProps = dispatch => {
   return {
     getBuses: () => dispatch(getBuses()),
   };
 };
 
-@connect(null, mapDispatchToProps)
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Buses extends Component {
 
   componentWillMount () {
@@ -22,7 +26,7 @@ export default class Buses extends Component {
   }
 
   render () {
-    return <div><Map/></div>;
+    return <Map buses={this.props.buses}/>;
   }
 }
 
