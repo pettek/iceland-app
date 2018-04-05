@@ -3,7 +3,7 @@ const users = [
   {userName: 'aaa', password: 'bbb'}
 ];
 
-export const loginUser = (loginData) => {
+export const login = (loginData) => {
   return (dispatch) => {
     return dispatch({
       type: 'LOGIN_USER',
