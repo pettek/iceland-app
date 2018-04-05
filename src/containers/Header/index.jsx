@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { NavLink }          from 'react-router-dom';
+import UserStatus           from '../../components/UserStatus';
 
 export default class Header extends Component {
   render () {
@@ -44,11 +45,7 @@ export default class Header extends Component {
                 activeClassName="selected"
               >Carpooling</NavLink>
             </li>
-            <li className="nav-item push-right"><NavLink
-              exact to="/login"
-              activeClassName="selected"
-            ><i className="fa fa-user-circle-o"
-                aria-hidden="true"/> &nbsp; Login</NavLink></li>
+            <li className="nav-item push-right"><UserStatus/></li>
           </ul>
         </div>
       </nav>
