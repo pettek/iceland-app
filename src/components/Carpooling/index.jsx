@@ -1,7 +1,7 @@
-import React, { Component }    from 'react';
-import Ride                    from './Ride';
-import { getDrivers } from '../../actions/index';
-import connect                 from 'react-redux/es/connect/connect';
+import React, { Component } from 'react';
+import Ride                 from './Ride';
+import { getDrivers }       from '../../actions/index';
+import { connect }          from 'react-redux';
 
 const mapStateToProps = state => ({
   drivers: state.drivers,
