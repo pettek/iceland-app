@@ -6,7 +6,6 @@ import {
 
 const sportReducer = (state = {}, action) => {
   switch (action.type) {
-
     case SPORT_REQUEST_SUCCESSFUL_ENDPOINT:
       if (action.url !== '/Sports') {
         return {
@@ -19,25 +18,33 @@ const sportReducer = (state = {}, action) => {
             },
           },
         };
-      } else {
-        return {
-          ...state,
-          [action.endpoint]: {...state[action.endpoint], label: action.label},
-        };
       }
+      return {
+        ...state,
+        [action.endpoint]: {
+          ...state[action.endpoint],
+          label: action.label,
+        },
+      };
+
 
     case SPORT_REQUEST_SUCCESSFUL:
       return {
         ...state,
-        [action.endpoint]: {...state[action.endpoint], payload: action.payload},
+        [action.endpoint]: {
+          ...state[action.endpoint],
+          payload: action.payload,
+        },
       };
 
     case SPORT_REQUEST_FAILED:
-      return {...state, error: action.payload};
+      return {
+        ...state,
+        error: action.payload,
+      };
 
     default:
       return state;
-
   }
 };
 

@@ -1,36 +1,41 @@
 import React, { Component } from 'react';
-import { getBuses }         from '../../actions';
 import { connect }          from 'react-redux';
-import { Map }              from './Map';
+import PropTypes            from 'prop-types';
+import { getBuses }         from '../../actions';
+import Map                  from './Map';
 
 const mapStateToProps = state => ({
   buses: state.buses,
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getBuses: () => dispatch(getBuses()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getBuses: () => dispatch(getBuses()),
+});
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Buses extends Component {
+  static propTypes = {
+    buses: PropTypes.arrayOf({
+      position: PropTypes.shape({
+        lat: PropTypes.string,
+        lon: PropTypes.string,
+      }),
+      route: PropTypes.string,
+    }).isRequired,
+    getBuses: PropTypes.func.isRequired,
+  };
 
-  componentWillMount () {
+  componentWillMount() {
     this.intervalId = setInterval(() => this.props.getBuses(), 5000);
     this.props.getBuses();
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearInterval(this.intervalId);
   }
 
-  render () {
-    return <Map buses={this.props.buses}/>;
+  render() {
+    return <Map buses={this.props.buses} />;
   }
 }
-
-
-
-
 

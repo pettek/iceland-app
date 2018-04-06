@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
-import { Departure }        from './Departure';
+import shortid              from 'shortid';
+import PropTypes            from 'prop-types';
+import Departure            from './Departure';
 
 const mapStateToProps = state => ({
   departures: state.flights.departures,
@@ -8,12 +10,22 @@ const mapStateToProps = state => ({
 
 @connect(mapStateToProps)
 export default class DeparturesList extends Component {
-  render () {
-    const departures = this.props.departures.map((dep, ind) => (
-      <Departure key={ind} data={dep}/>
+  static propTypes = {
+    departures: PropTypes.arrayOf({
+      airline: PropTypes.string.isRequired,
+      flightNumber: PropTypes.string.isRequired,
+      plannedArrival: PropTypes.string.isRequired,
+      realArrival: PropTypes.string.isRequired,
+    }).isRequired,
+  };
+
+  render() {
+    const departures = this.props.departures.map(dep => (
+      <Departure key={shortid.generate()} data={dep} />
     ));
-    return <div>
-      {departures}
-    </div>;
+    return (
+      <div>
+        {departures}
+      </div>);
   }
 }

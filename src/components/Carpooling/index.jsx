@@ -1,45 +1,44 @@
 import React, { Component } from 'react';
-import { getDrivers }       from '../../actions/index';
 import { connect }          from 'react-redux';
-import { Ride }             from './Ride';
+import { getDrivers }       from '../../actions/index';
+import Ride                 from './Ride';
 
 const mapStateToProps = state => ({
   drivers: state.drivers,
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getDrivers: () => dispatch(getDrivers()),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getDrivers: () => dispatch(getDrivers()),
+});
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Carpooling extends Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {filter: ''};
+    this.state = { filter: '' };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.getDrivers();
   }
 
-  handleChange (e) {
-    this.setState({filter: e.target.value.toLowerCase()});
+  handleChange(e) {
+    this.setState({ filter: e.target.value.toLowerCase() });
   }
 
-  render () {
+  render() {
     const rides = this.props.drivers
-      .filter(d => {
-        const filter = this.state.filter.replace(/ /g,'');
+      .filter((d) => {
+        const filter = this.state.filter.replace(/ /g, '');
 
-        return d.from.toLowerCase().includes(filter) ||
-        d.to.toLowerCase().includes(filter)
+        return d.from.toLowerCase()
+          .includes(filter) ||
+          d.to.toLowerCase()
+            .includes(filter);
       })
-      .map(d => <Ride key={d.link} details={d}/>);
+      .map(d => <Ride key={d.link} details={d} />);
 
-    return <div>
+    return (<div>
       <h1>Find your drive</h1>
       From/To
       <input
@@ -51,6 +50,6 @@ export default class Carpooling extends Component {
       <div className="container">
         {rides}
       </div>
-    </div>;
+    </div>);
   }
 }

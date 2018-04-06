@@ -1,51 +1,63 @@
 import React, { Component } from 'react';
-import './Header.css';
 import { NavLink }          from 'react-router-dom';
+import './Header.css';
 import UserStatus           from '../../components/UserStatus';
 
 export default class Header extends Component {
-  render () {
+  render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="collapse navbar-collapse">
           <ul className="nav justify-content-center">
             <li className="nav-item">
               <NavLink
-                exact to="/"
+                exact
+                to="/"
                 activeClassName="selected"
-              >Home</NavLink>
+              >Home
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/concerts"
+                exact
+                to="/concerts"
                 activeClassName="selected"
-              >Concerts</NavLink>
+              >Concerts
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/sports"
+                exact
+                to="/sports"
                 activeClassName="selected"
-              >Sports</NavLink>
+              >Sports
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/flights"
+                exact
+                to="/flights"
                 activeClassName="selected"
-              >Flights</NavLink>
+              >Flights
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/buses"
+                exact
+                to="/buses"
                 activeClassName="selected"
-              >Buses</NavLink>
+              >Buses
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                exact to="/carpooling"
+                exact
+                to="/carpooling"
                 activeClassName="selected"
-              >Carpooling</NavLink>
+              >Carpooling
+              </NavLink>
             </li>
-            <li className="nav-item push-right"><UserStatus/></li>
+            <li className="nav-item push-right"><UserStatus /></li>
           </ul>
         </div>
       </nav>

@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import fetchMock from 'jest-fetch-mock';
-import promise from 'redux-promise-middleware';
-import getConcerts from './concertsActions';
+import thunk              from 'redux-thunk';
+import fetchMock          from 'jest-fetch-mock';
+import promise            from 'redux-promise-middleware';
+import getConcerts        from './concertsActions';
 
 
 const mockStore = configureMockStore([thunk, promise()]);
@@ -26,11 +26,16 @@ describe('concertsActions', () => {
     const store = mockStore({ concerts: [] });
     const expectedActions = [
       { type: 'GET_CONCERTS_PENDING' },
-      { type: 'GET_CONCERTS_FULFILLED', payload: response },
+      {
+        type: 'GET_CONCERTS_FULFILLED',
+        payload: response,
+      },
     ];
 
-    store.dispatch(getConcerts()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
+    store.dispatch(getConcerts())
+      .then(() => {
+        expect(store.getActions())
+          .toEqual(expectedActions);
+      });
   });
 });

@@ -1,7 +1,7 @@
 import React, { Component }   from 'react';
-import { LoginButton }        from './LoginButton';
-import { LoggedInUserButton } from './LoggedInUserButton';
 import { connect }            from 'react-redux';
+import { LoginButton }        from './LoginButton';
+import LoggedInUserButton  from './LoggedInUserButton';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -9,9 +9,9 @@ const mapStateToProps = state => ({
 
 @connect(mapStateToProps)
 export default class UserStatus extends Component {
-  render () {
+  render() {
     return (this.props.user.userName) ?
-      <LoggedInUserButton userName={this.props.user.userName}/> :
-      <LoginButton/>;
+      <LoggedInUserButton userName={this.props.user.userName} /> :
+      <LoginButton />;
   }
 }

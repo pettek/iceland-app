@@ -3,6 +3,8 @@ const users = [
   { userName: 'aaa', password: 'bbb' },
 ];
 
+/* eslint-disable prefer-promise-reject-errors */
+
 const login = loginData => dispatch => dispatch({
   type: 'LOGIN_USER',
   payload: (new Promise((resolve, reject) => {
@@ -11,11 +13,10 @@ const login = loginData => dispatch => dispatch({
         user.password === loginData.password) {
         resolve(user);
       } else {
-        reject(new Error('Wrong username and/or password'));
+        reject({ message: 'Wrong username and/or password' });
       }
     });
-  })).then(r => r)
-    .catch(error => error.message),
+  })).then(r => r),
 });
 
 export default login;
