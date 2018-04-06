@@ -57,6 +57,14 @@ export default class Header extends Component {
               >Carpooling
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/playground"
+                activeClassName="selected"
+              >Playground
+              </NavLink>
+            </li>
             <li className="nav-item push-right"><UserStatus /></li>
           </ul>
         </div>

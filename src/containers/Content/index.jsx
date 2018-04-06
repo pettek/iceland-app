@@ -7,6 +7,7 @@ import Buses             from '../../components/Buses/index';
 import Carpooling        from '../../components/Carpooling/index';
 import Concerts          from '../../components/Concerts/index';
 import LoginForm         from '../../components/LoginForm';
+import Playground        from '../../components/Playground';
 
 const Content = () => (
   <div>
@@ -18,6 +19,7 @@ const Content = () => (
       <Route exact path="/buses" component={Buses} />
       <Route exact path="/carpooling" component={Carpooling} />
       <Route exact path="/login" component={LoginForm} />
+      <Route exact path="/playground" component={Playground} />
     </Switch>
   </div>
 );
