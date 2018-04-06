@@ -1,6 +1,6 @@
-export { getConcerts }                from './concertsActions';
-export { fetchSportsFromApi }         from './sportsActions';
+export { default as getConcerts } from './concertsActions';
+export { default as fetchSportsFromApi } from './sportsActions';
 export { getArrivals, getDepartures } from './flightsActions';
-export { getBuses }                   from './busesActions';
-export { getDrivers }                 from './carpoolingActions';
-export { login }                      from './userActions';
+export { default as getBuses } from './busesActions';
+export { default as getDrivers } from './carpoolingActions';
+export { default as login } from './userActions';

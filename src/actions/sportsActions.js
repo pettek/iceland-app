@@ -5,38 +5,37 @@ import {
   SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
 } from './actions';
 
-export const fetchSportsFromApi = (url) => {
-  return (dispatch) => {
-    dispatch({
-      type: SPORT_REQUEST_CREATED,
-    });
+const fetchSportsFromApi = url => (dispatch) => {
+  dispatch({
+    type: SPORT_REQUEST_CREATED,
+  });
 
-    fetch(`http://apis.is${url}`)
-      .then(response => response.json())
-      .then(results => {
-        if (results.results[0].endpoints) {
-          const endpoints = results.results[0].endpoints;
-          Object.keys(endpoints).forEach(label =>
-            dispatch({
-              type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
-              label,
-              endpoint: endpoints[label],
-              url,
-            }),
-          );
-        } else {
+  fetch(`http://apis.is${url}`)
+    .then(response => response.json())
+    .then((results) => {
+      if (results.results[0].endpoints) {
+        const { endpoints } = results.results[0];
+        Object.keys(endpoints).forEach(label =>
           dispatch({
-            type: SPORT_REQUEST_SUCCESSFUL,
-            payload: results.results,
-            endpoint: url,
-          });
-        }
-      })
-      .catch(error => {
+            type: SPORT_REQUEST_SUCCESSFUL_ENDPOINT,
+            label,
+            endpoint: endpoints[label],
+            url,
+          }));
+      } else {
         dispatch({
-          type: SPORT_REQUEST_FAILED,
-          payload: error.message,
+          type: SPORT_REQUEST_SUCCESSFUL,
+          payload: results.results,
+          endpoint: url,
         });
+      }
+    })
+    .catch((error) => {
+      dispatch({
+        type: SPORT_REQUEST_FAILED,
+        payload: error.message,
       });
-  };
+    });
 };
+
+export default fetchSportsFromApi;
